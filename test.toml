@@ -1,0 +1,17 @@
+name = "test-app-zizek"
+secondary = false
+primary_core = 10
+cores = [10, 11]
+strict = false
+pool_size = 2047
+cache_size = 32
+
+[[ports]]
+  name = "18:00.1"
+  rx_queues = [10, 11]
+  tx_queues = [10, 11]
+  rxd = 128
+  txd = 128
+  loopback = false
+  tso = false
+  csumoffload = false

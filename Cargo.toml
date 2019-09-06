@@ -1,0 +1,10 @@
+[package]
+name = "netbricks_test"
+version = "0.1.0"
+
+[dependencies]
+netbricks = { path = "/opt/netbricks/framework"}
+
+[features]
+default = []
+print = []
