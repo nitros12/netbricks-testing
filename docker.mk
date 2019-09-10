@@ -14,6 +14,14 @@ pull-sandbox:
 build-test-sandbox:
 	@docker build -t zizek-test/test .
 
+run-test-bash: pull-sandbox build-test-sandbox
+	@docker run -it --rm --privileged --network=host \
+		-w /opt \
+		-e HIST_FILE=/root/.bash_history \
+		-v $(HOME)/.bash_history:/root/.bash_history \
+		$(MOUNTS) \
+		zizek-test/test /bin/bash
+
 run-test: pull-sandbox build-test-sandbox
 	@docker run -it --rm --privileged --network=host \
 		-w /opt \

@@ -1,10 +1,11 @@
 [package]
 name = "netbricks_test"
 version = "0.1.0"
+edition = "2018"
 
 [dependencies]
 netbricks = { path = "/opt/netbricks/framework"}
 
-[features]
-default = []
-print = []
+[[bin]]
+name = "netbricks_test"
+path = "src/main.rs"

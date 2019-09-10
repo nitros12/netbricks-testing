@@ -6,5 +6,13 @@ RUN git clone https://github.com/williamofockham/NetBricks /opt/netbricks
 RUN make build
 
 WORKDIR /opt/netbricks_test
-ADD . /opt/netbricks_test
-RUN cargo build
+ADD Cargo.toml ./Cargo.toml
+RUN mkdir src && echo "fn main() {}" > src/main.rs
+RUN cargo build --release
+RUN rm src/*.rs
+RUN rm target/release/deps/netbricks_test*
+
+ADD src/ src/
+RUN cargo build --release
+
+ADD test.toml run.sh ./
